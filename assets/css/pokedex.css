@@ -11,7 +11,7 @@
 }
 
 .grass {
-    background-color: #77c850;
+    background-color: #86d461;
 }
 
 .fire {
@@ -141,7 +141,7 @@
     margin: .25rem 0;
     font-size: .625rem;
     color: #fff;
-    background-color: #6c79db;
+    background-color: #5766db;
     border: none;
     border-radius: 1rem;
 }
@@ -150,6 +150,12 @@
     .pokemons {
         grid-template-columns: 1fr 1fr;
     }
+
+    .pokemon .detail img {
+        max-width: 70%;
+        height: 50px;
+    }
+
 }
 
 @media screen and (min-width: 576px) {
