@@ -56,9 +56,9 @@ pokeApi.getPokemons = (offset = 0, limit = 5) => {
     const url = `https://pokeapi.co/api/v2/pokemon?offset=${offset}&limit=${limit}`
 
     return fetch(url)
-        .then((response) => response.json())
-        .then((jsonBody) => jsonBody.results)
-        .then((pokemons) => pokemons.map(pokeApi.getPokemonDetail))
+        .then((response) => response.json())                        // recebendo response e transformando em promessa do body
+        .then((jsonBody) => jsonBody.results)                       // acessando o body do json e "printando"
+        .then((pokemons) => pokemons.map(pokeApi.getPokemonDetail)) // 
         .then((detailRequests) => Promise.all(detailRequests))
         .then((pokemonsDetails) => pokemonsDetails)
 }
