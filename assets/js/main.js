@@ -17,7 +17,23 @@ function loadPokemonItens(offset, limit) {
 
 loadPokemonItens(offset, limit)
 
-//Carrega mais pokemons ao clicar
+
+//Infinite Scroll - Carrega mais pokemons ao final da página
+window.addEventListener('scroll', () => {
+    if (window.scrollY + window.innerHeight >= document.documentElement.scrollHeight) {
+        offset += limit
+        const qtdRecordsWithNexPage = offset + limit
+        
+        if (qtdRecordsWithNexPage >= maxRecords) {
+            const newLimit = maxRecords - offset
+            loadPokemonItens(offset, newLimit)
+        } else {
+            loadPokemonItens(offset, limit)
+        }
+    }
+})
+
+//Carrega mais pokemons ao clicar (para se der problema no scroll)
 loadMoreButton.addEventListener('click', () => {
     offset += limit
     const qtdRecordsWithNexPage = offset + limit
@@ -32,21 +48,6 @@ loadMoreButton.addEventListener('click', () => {
     }
 })
 
-//Infinite Scroll - Carrega mais pokemons ao final da página
-window.addEventListener('scroll', () => {
-    if (window.scrollY + window.innerHeight >= document.documentElement.scrollHeight) {
-        offset += limit
-        const qtdRecordsWithNexPage = offset + limit
-
-        if (qtdRecordsWithNexPage >= maxRecords) {
-            const newLimit = maxRecords - offset
-            loadPokemonItens(offset, newLimit)
-        } else {
-            loadPokemonItens(offset, limit)
-        }
-    }
-})
-
 //Converte os pokemons em uma lista
 function convertPokemonToLi(pokemon) {
     return `
@@ -56,6 +57,9 @@ function convertPokemonToLi(pokemon) {
                 <div class="detail">
                     <ol class="types">
                         ${pokemon.types.map((type) => `<li class="type ${type}" >${type}</li>`).join('')}
+                    </ol>
+                    <ol class="types">
+                        ${pokemon.stats.map((stat) => `<li class="type ${stat}" >${stat}</li>`).join('')}
                     </ol>
                     <img src="${pokemon.photo}"
                          alt="${pokemon.name}">
