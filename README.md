@@ -22,4 +22,4 @@ Foi disponibilizado o projeto com a listagem de pokémons, e o exercício propos
   <li>Git/GitHub</li>
 </ul>
 
-<p>Clique aqui para acessar o projeto</p>
+<button><a href="https://pokedex-dio-phi.vercel.app/" target="_blank">Clique aqui para acessar o projeto</a></button>
