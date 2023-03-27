@@ -1,4 +1,4 @@
-<h1>Potência Tech Angular Developer - Powered by iFood</h1>
+<h1>Potência Tech Angular Developer - Powered by iFood (Em desenvolvimento)</h1>
 <p>Projeto desenvolvido como exercício do bootcamp Potência Tech Angular Developer - Powered by iFood, com intuíto de prática de JavaScript. 
 Foi disponibilizado o projeto com a listagem de pokémons, e o exercício proposto era melhorar a página, e implementar a tela de detalhes dos pokémons.</p>
 
